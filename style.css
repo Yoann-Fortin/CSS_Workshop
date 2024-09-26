@@ -6,77 +6,100 @@
 
 body {
    line-height: 1.5;
-   background-color: #ededed;
+   background-color: #f2f2f2;
+}
+
+:root {
+   --primaryColor: #fff;
+   --secondaryColor: #a306b6;
 }
 
 nav {
-   background-color: #a306b6;
-   padding: .5rem;
+   background-color: var(--secondaryColor);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: .75rem;
 }
 
-a, h1 {
-   color: #fff;
+nav > a {
+   font-weight: bold;
+   font-size: 1.2rem;
 }
 
 a {
    text-decoration: none;
+   color: var(--primaryColor);
 }
 
-nav > a {
-   font-size: 2rem;
-   display: inline-block;
-   padding-bottom: .5rem;
-}
-
-li {
-   list-style-type: none;
-   display: inline;
-   margin-right: 1rem;
+ul {
+   list-style: none;
 }
 
 header {
+   display: flex;
+   justify-content: center;
+   align-items: center;
    min-height: 250px;
-   padding-top: 5rem;
-   background-image: url(https://fastly.picsum.photos/id/599/1920/600.jpg?hmac=VqAROYXgZfqumquXfoENHyBblvIyGE4oKw1GPhRIo5A);
+   background-image: url(https://picsum.photos/id/1074/1920/600);
+   background-size: cover;
    background-position: center;
 }
 
 h1 {
-   text-align: center;
+   color:  var(--primaryColor);
+   font-size: clamp(2rem, 5vw, 3rem);
 }
 
 section {
-   width: 65ch;
+   padding: .5rem;
+   width: min(65ch, 90vw);
    margin: auto;
 }
 
 h2 {
-   margin: 1rem 0;
+   font-weight: bold;
+   padding: 1rem 0;
 }
 
-section:last-of-type {
+.featuredPosts {
    display: grid;
-   grid-template-columns: 1fr 1fr;
+   grid-template-columns: repeat(2, 1fr);
    gap: .5rem;
 }
 
-section:last-of-type > h2 {
+.featuredPosts > h2, 
+article:first-of-type {
    grid-column: span 2;
 }
 
 article {
-   padding: 1.5rem .25rem;
-   background-color: #fff;
+   background-color: var(--primaryColor);
+   color: var(--secondaryColor);
+   padding: 1rem .5rem;
    border-radius: 5px;
-   box-shadow: -5px 5px 10px grey;
+   box-shadow: -2px 5px 10px rgba(0, 0, 0,20%);
 }
 
 footer {
-   background-color: #a306b6;
-   padding: .5rem;
-   margin-top: 1rem;
+   background-color: var(--secondaryColor);
+   padding: 1rem;
+   color: var(--primaryColor);
+   margin-top: 2rem;
 }
 
-footer > p {
-   color: #fff;
+@media screen and (min-width: 768px){
+ li {
+   display: inline;
+   margin: 0 .25rem;
+ }
+
+ .featuredPosts {
+   grid-template-columns: 2fr repeat(2, 1fr);
+ }
+
+ article:first-of-type {
+   grid-column: 1;
+   grid-row: span 2;
+ }
 }
